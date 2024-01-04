@@ -51,7 +51,7 @@ class QuizActivityController extends Controller
         }
 
         if ($store['success']) {
-            return 'https://my-activity-provider-c21fad9b3b83.herokuapp.com/api/accessing';
+            return 'https://my-activity-provider/api/accessing'; //https://my-activity-provider-c21fad9b3b83.herokuapp.com/api/accessing
         }
 
         return $store['message'];
@@ -73,7 +73,7 @@ class QuizActivityController extends Controller
         $accessing = $this->quizActivity->accessing($request);
 
         if ($accessing['success']) {
-            return 'https://my-activity-provider-c21fad9b3b83.herokuapp.com/api/activity';
+            return 'https://my-activity-provider/api/activity'; //'https://my-activity-provider-c21fad9b3b83.herokuapp.com/api/activity'
         }
 
         return $accessing['message'];
@@ -104,11 +104,8 @@ class QuizActivityController extends Controller
 
         //Em gesto de teste
         return $store['message'];
-
-        //Chamado por post, contendo o identificador da atividade e o id do aluno e os dados analíticos
-        //Programar a recepção para armazenar na tabela quiz_analitcs
     }
-    
+
     public function listAnalytics()
     {
         $analitics = array(
