@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\QuestionFormRequest;
-use App\Models\Question;
+use App\Models\Question as QuestionModel;
+use App\Question\Decorators\TagDecorator;
+use App\Question\Question;
 
 class QuestionController extends Controller
 {
@@ -15,23 +17,27 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return void
      */
-    public function __construct(Question $question)
+    public function __construct(QuestionModel $question)
     {
         $this->question = $question;
     }
 
     /**
-     * Exibe uma lista de perguntas.
+     * Exibe uma lista de perguntas no formato JSON.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $questions = $this->question->paginate(10);
+        $myQuestions = $this->question->all();
 
-        $title = 'PERGUNTAS';
-
-        return view('question.index', compact('questions', 'title'));
+        foreach ($myQuestions as $myQuestion) {
+            $question       = new Question($myQuestion);
+            $tagQuestion    = new TagDecorator($question);
+            $tagQuestions[] = $tagQuestion->question();
+        }
+        
+        return response()->json($tagQuestions);
     }
 
     /**

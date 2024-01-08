@@ -39,7 +39,7 @@ class QuizActivityController extends Controller
             ) 
         );
 
-        return json_encode($paramsUrl);
+        return response()->json($paramsUrl);
     }
 
     public function deploy(int $activityID)
@@ -159,7 +159,7 @@ class QuizActivityController extends Controller
             ]
         );
 
-        return json_encode($analitics);
+        return response()->json($analitics);
     }
 
     public function analytics(Request $request)
@@ -171,11 +171,11 @@ class QuizActivityController extends Controller
 
         $analytics = $this->quizAnalytic->show($request);
 
-        return json_encode($analytics);
+        return response()->json($analytics);
     }
 
     public function test(Request $request)
     {
-        return json_encode($request->options);
+        return response()->json($request->options);
     }
 }

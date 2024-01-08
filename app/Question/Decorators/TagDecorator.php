@@ -8,6 +8,6 @@ class TagDecorator extends QuestionDecorator
 {
     public function question(): string
     {
-        return "Pergunta " . $this->question->id . ": " . $this->question->question();
+        return "Pergunta: " . $this->question->question();
     }
 }

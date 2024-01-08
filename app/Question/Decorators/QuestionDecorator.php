@@ -12,7 +12,7 @@ abstract class QuestionDecorator implements QuestionInterface
     {
         $this->question = $question;
     }
-
+    
     public function question(): string
     {
         return $this->question->question();
