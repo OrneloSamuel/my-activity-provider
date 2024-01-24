@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizActivityController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ChapterController;
 
 Route::get('config', [QuizActivityController::class, 'config']);
 Route::get('params', [QuizActivityController::class, 'params']);
@@ -13,3 +14,5 @@ Route::get('list-analytics', [QuizActivityController::class, 'listAnalytics']);
 Route::post('analytics', [QuizActivityController::class, 'analytics']);
 Route::post('test', [QuizActivityController::class, 'test']);
 Route::get('question', [QuestionController::class, 'index']);
+Route::get('chapter/show-all', [ChapterController::class, 'showAll']);
+Route::get('question/show-all', [QuestionController::class, 'showAll']);

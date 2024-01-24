@@ -63,7 +63,7 @@ class QuizAnalytic extends Model
     /**
      * Selecciona no banco de dados todos os analytics referente a QuizActivity.
      *
-     * @param  array  $request
+     * @param  mixed  $request
      * @return array
      */
     public function show($request)

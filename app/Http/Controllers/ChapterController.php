@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ChapterFormRequest;
 use App\Models\Chapter;
+use App\ShowData\ChapterShow;
 
 class ChapterController extends Controller
 {
@@ -158,5 +159,15 @@ class ChapterController extends Controller
         $title = 'CAPÍTULO';
 
         return view('chapter.delete', compact('chapter', 'title'));
+    }
+
+    /**
+     * Exibe uma lista de capítulos e as perguntas relaciondas a cada capítulo.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll(ChapterShow $chapterShow)
+    {
+        return response()->json($chapterShow->show());
     }
 }

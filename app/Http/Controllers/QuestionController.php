@@ -6,6 +6,8 @@ use App\Http\Requests\QuestionFormRequest;
 use App\Models\Question as QuestionModel;
 use App\Question\Decorators\TagDecorator;
 use App\Question\Question;
+use App\QuestionIterator\QuestionIterator;
+use App\ShowData\QuestionShow;
 
 class QuestionController extends Controller
 {
@@ -36,7 +38,7 @@ class QuestionController extends Controller
             $tagQuestion    = new TagDecorator($question);
             $tagQuestions[] = $tagQuestion->question();
         }
-        
+
         return response()->json($tagQuestions);
     }
 
@@ -58,7 +60,7 @@ class QuestionController extends Controller
      * Guarda o registo da pergunta recém-cadastrada.
      *
      * @param  \App\Http\Requests\QuestionFormRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(QuestionFormRequest $request)
     {
@@ -78,7 +80,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * Mostra o formulário pra editar uma pergunta específico.
+     * Mostra o formulário pra editar uma pergunta específica.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -105,7 +107,7 @@ class QuestionController extends Controller
      *
      * @param  \App\Http\Requests\QuestionFormRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(QuestionFormRequest $request, $id)
     {
@@ -128,7 +130,7 @@ class QuestionController extends Controller
      * Exclui o registo de uma pergunta específica.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
@@ -164,5 +166,15 @@ class QuestionController extends Controller
         $title = 'PERGUNTA';
 
         return view('question.delete', compact('question', 'title'));
+    }
+
+    /**
+     * Exibe uma lista de perguntas e respostas relacionadas a cada pergunta.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll(QuestionShow $questionShow)
+    {
+        return response()->json($questionShow->show());
     }
 }
