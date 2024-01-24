@@ -19,7 +19,7 @@ class QuestionShow extends ShowData {
 
         $arrayQuestions = [];
         foreach ($questions as $question) {
-            $answers = Answer::where("chapterId", $question->id)->get();
+            $answers = Answer::where("questionId", $question->id)->get();
 
             if (count($answers) > 0) {
                 foreach ($answers as $answer) {
