@@ -1,0 +1,245 @@
+/*MENU SUPERIOR*/
+
+.navbar,
+.navbar-default {
+    margin-bottom: 0;
+    background-color: rgba(238, 238, 238, .96);
+    border-radius: 0;
+}
+
+.up .navbar-brand {
+    font-size: 1em;
+    color: #fff;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+    color: black;
+    font-weight: 400;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a:hover {
+    background-color: #ccc;
+}
+
+.navbar-default .navbar-brand {
+    font-weight: 700;
+}
+
+.up {
+    background-color: #254f6e;
+    color: #fff;
+    border: 0;
+}
+
+.up img.logo {
+    margin-top: -20px;
+    width: 155px;
+}
+
+.up img.logo:hover {
+    filter: opacity(30%);
+}
+
+.up .login {
+    margin-top: 15px;
+}
+
+.up .login .dropdown-toggle,
+.up .login-xs .dropdown-toggle {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#login:hover,
+.up .login-xs .dropdown-toggle:hover,
+.up .login .dropdown-toggle:hover,
+#login-xs:hover {
+    text-shadow: 0px 0px 5px #000;
+    color: #eee;
+    cursor: pointer;
+}
+
+.birthday {
+    margin-left: 15px;
+}
+
+.birthday.view {
+    color: #eee;
+}
+
+.birthday:hover {
+    text-shadow: 0px 0px 5px #000;
+    color: #eee;
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+
+/*MENU LATERAL*/
+
+.lateral-menu {
+    width: 241px;
+    margin: 20px 10px 0px 0px;
+    background-color: #254f6e;
+    font-size: 14px;
+    color: white;
+    transition: all .4s ease-in-out;
+    flex-shrink: 0;
+}
+
+.lateral-menu .menu-open,
+.lateral-menu .scroll.menu-open {
+    width: 241px;
+}
+
+.lateral-menu .profile-picture {
+    width: 100%;
+    height: 170px;
+}
+
+.lateral-menu .profile-picture img {
+    width: 100%;
+    padding: 5px 28px 0 28px;
+    border-radius: 50%;
+    height: 169px;
+}
+
+.lateral-menu .scroll {
+    height: calc(100% - 400px);
+    width: 241px;
+    position: absolute;
+    left: 0;
+    top: 241px;
+    z-index: 10;
+    transition: all .4s ease-in-out;
+}
+
+.lateral-menu .panel {
+    background-color: #254f6e;
+    border: 0;
+}
+
+.lateral-menu .panel-primary p a {
+    text-align: center;
+    text-shadow: 0px 0px 5px #000;
+}
+
+.lateral-menu .panel-primary a {
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.lateral-menu .panel-primary>.panel-heading {
+    background-color: #254f6e;
+    border: 0;
+}
+
+.lateral-menu ul {
+    margin: 0;
+    width: 100%;
+}
+
+.lateral-menu ul:nth-child(odd) {
+    margin-bottom: 20px;
+}
+
+.lateral-menu ul p {
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.lateral-menu ul #p {
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.lateral-menu ul li {
+    width: 100%;
+    background-color: #254f6e;
+    position: relative;
+    padding: 0;
+}
+
+.lateral-menu li a:hover {
+    border: 1px solid #5bc0de;
+    text-shadow: 0px 0px 5px #000;
+    background-color: #254f6e;
+}
+
+.lateral-menu li ul {
+    position: static;
+    left: 0;
+    margin-left: 15px;
+    width: 90%;
+}
+
+.selected-submenu {
+    border: 1px solid #5bc0de;
+    text-shadow: 0px 0px 5px #000;
+}
+
+.lateral-menu li a {
+    color: white;
+    padding: 5px 0 5px 5px;
+}
+
+.lateral-menu .nav>li>a:focus {
+    background-color: #254f6e;
+}
+
+
+@media(max-width: 900px) {
+    .fixed-button {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .lateral-menu {
+        width: 0px;
+    }
+    .lateral-menu .scroll {
+        width: 0px;
+    }
+    .lateral-menu.menu-open,
+    .lateral-menu .scroll.menu-open {
+        width: 241px;
+    }
+}
+
+@media(max-width: 767px) {
+    .fixed-button {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .lateral-menu {
+        width: 0px;
+        position: absolute;
+        z-index: 1;
+    }
+    .lateral-menu .scroll {
+        position: unset;
+        width: 0px;
+    }
+    .lateral-menu.menu-open {
+        width: 100%;
+    }
+    .lateral-menu .scroll.menu-open {
+        width: 100%;
+    }
+    .lateral-menu .profile-picture {
+        padding-left: 26px;
+    }
+    .lateral-menu .profile-picture img {
+        max-width: 241px;
+    }
+}

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Question extends Model
 {
@@ -11,6 +12,11 @@ class Question extends Model
     ];
 
     public $timestamps = false;
+
+    public function chapter(): BelongsTo
+    {
+        return $this->belongsTo(Chapter::class, 'chapterId');
+    }
 
     /**
      * Persiste na base de dados uma nova pergunta.

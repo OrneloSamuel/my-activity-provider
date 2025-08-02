@@ -1,0 +1,212 @@
+/*INDEX*/
+
+main {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.title {
+    border-color: #254f6e;
+    margin-top: 20px;
+}
+
+.title h1 {
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.alert,
+.alert-info {
+    display: flow-root;
+}
+
+.add {
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.add a {
+    background-color: #ffbb00;
+    color: #000;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #ffbb00;
+    border-top: 1px solid #ffbb00;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.add a:hover {
+    background-color: #254f6e;
+    border-color: #c9c5c5;
+}
+
+.gray-row {
+    background-color: #c9c5c5;
+    background-color: #dbd9d9;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0 0 10px 0;
+}
+
+.line-up {
+    margin-top: 25px;
+}
+
+.row .panel-primary {
+    border-color: #254f6e;
+}
+
+.row .panel-primary>.panel-heading {
+    background-color: #254f6e;
+    border: 0;
+}
+
+.row .panel-danger>.panel-heading {
+    color: #254f6e;
+}
+
+.panel-title {
+    font-weight: bold;
+}
+
+.table tr td,
+.table tr th {
+    vertical-align: middle !important;
+}
+
+.table>tbody>tr>td.info,
+.table>tbody>tr>th.info {
+    font-size: 15px;
+    text-align: center;
+}
+
+.table>tbody>tr>th.action,
+.table>tbody>tr>td.action {
+    width: 165px;
+    text-align: center;
+}
+
+.table>tbody>tr>th.action-view,
+.table>tbody>tr>td.action-view {
+    width: 230px;
+    text-align: center;
+}
+
+.table>tbody>tr>th.action-plus,
+.table>tbody>tr>td.action-plus {
+    width: 280px;
+    text-align: center;
+}
+
+.table>tbody>tr>td.process-number,
+.table>tbody>tr>td.year {
+    width: 140px;
+}
+
+.table>tbody>tr>td.natural {
+    width: 40%;
+}
+
+.table>tbody>tr>td.number-count {
+    width: 280px;
+}
+
+.table>tbody>tr>td.code {
+    width: 210px;
+}
+
+.table-responsive a:hover {
+    background-color: #254f6e;
+}
+
+.search {
+    background-color: #254f6e;
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 0;
+}
+
+.search:hover {
+    background-color: #1a3950;
+}
+
+.save {
+    background-color: #5bc0de;
+    border-color: #31b0d5;
+    font-weight: bold;
+    height: 34px;
+}
+
+.save:hover {
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.back {
+    background-color: #254f6e;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 8px 15px 8px 15px;
+    border: 0;
+}
+
+.back-delete {
+    background-color: #254f6e;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    font-size: 12px;
+    padding: 6px 15px 6px 15px;
+}
+
+.back:hover,
+.back-delete:hover {
+    background-color: #1a3950;
+}
+
+a.btn-danger:hover {
+    background-color: #501a1a;
+}
+
+.delete {
+    font-weight: bold;
+}
+
+.delete-view {
+    height: 34px;
+}
+
+.loading {
+    position: relative;
+    top: -5px;
+    z-index: 20;
+}
+
+.table-responsive a.simple-link {
+    color: unset;
+    background-color: unset;
+}
+
+.table-responsive a.simple-link:hover {
+    background-color: unset;
+}
+
+
+/*PÁGINAS DE ERRO*/
+
+.error {
+    text-align: center;
+}
+
+/*CORRIGIR O ERRO NO AUTOCOMPLETE DENTRO DUM TAB-PANE*/
+
+div.easy-autocomplete.eac-description {
+    width: unset;
+}

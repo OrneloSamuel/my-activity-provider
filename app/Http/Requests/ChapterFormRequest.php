@@ -24,8 +24,8 @@ class ChapterFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => ['required', 'string', 'max:60', "unique:chapters,name,{$this->id},id"],
-            'description' => ['required', 'string', 'max:255']
+            'name'        => ['required', 'string', 'max:100', "unique:chapters,name,{$this->id},id"],
+            'description' => ['nullable', 'string', 'max:255']
         ];
     }
 
@@ -33,7 +33,7 @@ class ChapterFormRequest extends FormRequest
     {
         return [
             'name'        => 'Nome',
-            'description' => 'Descrição',
+            'description' => 'Descrição'
         ];
     }
 }

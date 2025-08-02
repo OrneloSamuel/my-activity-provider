@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AnswerFormRequest;
+use Illuminate\Http\Request;
 use App\Models\Answer;
+use App\Models\Question;
 
 class AnswerController extends Controller
 {
@@ -27,7 +29,7 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        $answers = $this->answer->paginate(10);
+        $answers = $this->answer->orderBy('answer')->paginate(10);
 
         $title = 'RESPOSTAS';
 
@@ -41,11 +43,11 @@ class AnswerController extends Controller
      */
     public function create()
     {
-        $answers = $this->answer->paginate(10);
+        $questions = Question::get();
 
         $title = 'CADASTRAR RESPOSTA';
 
-        return view('answer.create', compact('answers', 'title'));
+        return view('answer.create', compact('questions', 'title'));
     }
 
     /**
@@ -79,6 +81,8 @@ class AnswerController extends Controller
      */
     public function edit($id)
     {
+        $questions = Question::get();
+
         $answer = $this->answer->find($id);
 
         if (!$answer) {
@@ -87,11 +91,9 @@ class AnswerController extends Controller
                 ->with('error', 'Resposta inexistente!');
         }
 
-        $answers = $this->answer->paginate(10);
-
         $title = 'EDITAR RESPOSTA';
 
-        return view('answer.create', compact('answer', 'answers', 'title'));
+        return view('answer.create', compact('answer', 'questions', 'title'));
     }
 
     /**

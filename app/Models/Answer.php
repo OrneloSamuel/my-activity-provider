@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Answer extends Model
 {
@@ -11,6 +12,11 @@ class Answer extends Model
     ];
 
     public $timestamps = false;
+
+    public function question(): BelongsTo
+    {
+        return $this->belongsTo(Question::class, 'questionId');
+    }
 
     /**
      * Persiste na base de dados uma nova resposta.
@@ -49,7 +55,7 @@ class Answer extends Model
         if ($update) {
             return [
                 'success' => true,
-                'message' => 'Resposta editado com sucesso!'
+                'message' => 'Resposta editada com sucesso!'
             ];
         } else {
             return [

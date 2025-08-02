@@ -35,7 +35,7 @@ class AnswerFormRequest extends FormRequest
         return [
             'answer'     => 'Resposta',
             'correct'    => 'Correta',
-            'questionId' => 'Capítulo',
+            'questionId' => 'Pergunta',
         ];
     }
 }

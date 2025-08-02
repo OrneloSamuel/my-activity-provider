@@ -19,7 +19,9 @@ class QuizActivityController extends Controller
 
     public function config()
     {
-        return view('activity.create');
+        $title = 'Teste de Aptidão Sobre a Matéria - Configuração';
+
+        return view('quiz-activity.create', compact('title'));
     }
 
     public function params()

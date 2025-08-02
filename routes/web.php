@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Common resource group routes
+Route::resources([
+    'answer'   => App\Http\Controllers\AnswerController::class,
+    'chapter'  => App\Http\Controllers\ChapterController::class,
+    'question' => App\Http\Controllers\QuestionController::class
+]);
+
+Route::get('answer/{id}/delete', [App\Http\Controllers\AnswerController::class, 'delete'])
+    ->name('answer.delete');
+Route::get('chapter/{id}/delete', [App\Http\Controllers\ChapterController::class, 'delete'])
+    ->name('chapter.delete');
+Route::get('question/{id}/delete', [App\Http\Controllers\QuestionController::class, 'delete'])
+    ->name('question.delete');

@@ -24,7 +24,7 @@ class QuestionFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'question'  => ['required', 'string'],
+            'question'  => ['required', 'string', 'max:255'],
             'chapterId' => ['required', 'integer', 'max:9999999999']
         ];
     }

@@ -6,8 +6,8 @@ use App\Http\Requests\QuestionFormRequest;
 use App\Models\Question as QuestionModel;
 use App\Question\Decorators\TagDecorator;
 use App\Question\Question;
-use App\QuestionIterator\QuestionIterator;
 use App\ShowData\QuestionShow;
+use App\Models\Chapter;
 
 class QuestionController extends Controller
 {
@@ -25,21 +25,17 @@ class QuestionController extends Controller
     }
 
     /**
-     * Exibe uma lista de perguntas no formato JSON.
+     * Exibe uma lista de perguntas.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $myQuestions = $this->question->all();
+        $questions = $this->question->orderBy('question')->paginate(10);
 
-        foreach ($myQuestions as $myQuestion) {
-            $question       = new Question($myQuestion);
-            $tagQuestion    = new TagDecorator($question);
-            $tagQuestions[] = $tagQuestion->question();
-        }
+        $title = 'PERGUNTAS';
 
-        return response()->json($tagQuestions);
+        return view('question.index', compact('questions', 'title'));
     }
 
     /**
@@ -49,11 +45,11 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $questions = $this->question->paginate(10);
+        $chapters = Chapter::get();
 
         $title = 'CADASTRAR PERGUNTA';
 
-        return view('question.create', compact('questions', 'title'));
+        return view('question.create', compact('chapters', 'title'));
     }
 
     /**
@@ -95,11 +91,11 @@ class QuestionController extends Controller
                 ->with('error', 'Resposta inexistente!');
         }
 
-        $questions = $this->question->paginate(10);
+        $chapters = Chapter::get();
 
         $title = 'EDITAR PERGUNTA';
 
-        return view('question.create', compact('question', 'questions', 'title'));
+        return view('question.create', compact('question', 'chapters', 'title'));
     }
 
     /**
@@ -166,6 +162,24 @@ class QuestionController extends Controller
         $title = 'PERGUNTA';
 
         return view('question.delete', compact('question', 'title'));
+    }
+
+    /**
+     * Exibe uma lista de perguntas no formato JSON.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showQuestion()
+    {
+        $myQuestions = $this->question->all();
+
+        foreach ($myQuestions as $myQuestion) {
+            $question       = new Question($myQuestion);
+            $tagQuestion    = new TagDecorator($question);
+            $tagQuestions[] = $tagQuestion->question();
+        }
+
+        return response()->json($tagQuestions);
     }
 
     /**
